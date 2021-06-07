@@ -10,9 +10,15 @@ public class ConatactKill : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && BoilTemp.text != "T = 1 C")
+        if (collision.tag == "Player" && BoilTemp.text != "0")
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            PlayerPrefs.SetInt("HP", PlayerPrefs.GetInt("HP") - 20);                   
+        }
+
+        if(PlayerPrefs.GetInt("HP") == 0)
+        {
+            SceneManager.LoadScene("GameOver");
         }
     }
 }

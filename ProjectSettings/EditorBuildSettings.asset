@@ -9,11 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/Scenes/Tutorial.unity
     guid: 2e6ba322a1a8c6e46b96d4dfa8c50373
   - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 09f819158596d4f4980fa821649b2f81
+  - enabled: 1
     path: Assets/Scenes/Boilers.unity
-    guid: fb532147521db4d459488128157dd347
+    guid: 15ecbed0749941640b82ba8eeb3f3ba0
+  - enabled: 1
+    path: Assets/Scenes/Pool.unity
+    guid: 0fb5c9efe2f365e4eaef1630a94bca25
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 5b26acac564ebcd438ee39ad4c41de06

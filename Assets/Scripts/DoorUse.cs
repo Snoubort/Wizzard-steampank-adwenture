@@ -5,6 +5,7 @@ public class DoorUse : MonoBehaviour
 {
     public GameObject text;
     public bool ActivatedKey = false;
+    public string levelIndex;
     public void OpenText()
     {
         text.gameObject.SetActive(true);
@@ -41,13 +42,39 @@ public class DoorUse : MonoBehaviour
             OpenText();
             if (ActivatedKey)
             {
-                SceneManager.LoadScene("Boilers");
-                ActivatedKey = false;
+                if (levelIndex == "TutorialExit")
+                {
+                    PlayerPrefs.SetInt("LevelIndex", 1);
+                    SceneManager.LoadScene("Level1");
+                    ActivatedKey = false;
+                }
+                if (levelIndex == "BoilerEnter")
+                {
+                    SceneManager.LoadScene("Boilers");
+                    ActivatedKey = false;
+                }
+                if (levelIndex == "BoilerExit")
+                {
+                    PlayerPrefs.SetInt("LevelIndex", 2);
+                    SceneManager.LoadScene("Level1");
+                    ActivatedKey = false;
+                }
+
+                if (levelIndex == "PoolEnter")
+                {
+                    PlayerPrefs.SetInt("LevelIndex", 3);
+                    SceneManager.LoadScene("Pool");
+                    ActivatedKey = false;
+                }
+
+                if (levelIndex == "PoolExit")
+                {
+                    PlayerPrefs.SetInt("LevelIndex", 4);
+                    SceneManager.LoadScene("Level1");
+                    ActivatedKey = false;
+                }
+
             }         
         }
     }
-
-
-
-
 }

@@ -17,6 +17,19 @@ public class BoilerGen : MonoBehaviour
     public Text Boiler10;
     public Text Boiler11;
     public Text Boiler12;
+
+    public Text BoilerTemp1;
+    public Text BoilerTemp2;
+    public Text BoilerTemp3;
+    public Text BoilerTemp4;
+    public Text BoilerTemp5;
+    public Text BoilerTemp6;
+    public Text BoilerTemp7;
+    public Text BoilerTemp8;
+    public Text BoilerTemp9;
+    public Text BoilerTemp10;
+    public Text BoilerTemp11;
+    public Text BoilerTemp12;
     public static System.Random rnd = new System.Random(DateTime.Now.Millisecond);
     public static bool[] boilWay = new bool[12];
     public static int[] BoilNumbers = new int[12];
@@ -128,6 +141,19 @@ public class BoilerGen : MonoBehaviour
         Boiler10.text = "T = " + BoilNumbers[9].ToString() + " C";
         Boiler11.text = "T = " + BoilNumbers[10].ToString() + " C";
         Boiler12.text = "T = " + BoilNumbers[11].ToString() + " C";
+
+        BoilerTemp1.text = BoilNumbers[0].ToString();
+        BoilerTemp2.text = BoilNumbers[1].ToString();
+        BoilerTemp3.text = BoilNumbers[2].ToString();
+        BoilerTemp4.text = BoilNumbers[3].ToString();
+        BoilerTemp5.text = BoilNumbers[4].ToString();
+        BoilerTemp6.text = BoilNumbers[5].ToString();
+        BoilerTemp7.text = BoilNumbers[6].ToString();
+        BoilerTemp8.text = BoilNumbers[7].ToString();
+        BoilerTemp9.text = BoilNumbers[8].ToString();
+        BoilerTemp10.text = BoilNumbers[9].ToString();
+        BoilerTemp11.text = BoilNumbers[10].ToString();
+        BoilerTemp12.text = BoilNumbers[11].ToString();
     }
 
     // Update is called once per frame

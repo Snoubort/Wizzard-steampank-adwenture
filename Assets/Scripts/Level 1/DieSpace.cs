@@ -1,20 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DieSpace : MonoBehaviour
 {
-    public GameObject BoilExit;
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            if (PlayerPrefs.GetInt("BoilExit") == 1)
-            {
-                transform.position = BoilExit.transform.position;
-                return;
-            }
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                PlayerPrefs.SetInt("HP", PlayerPrefs.GetInt("HP") - 20);
         }
     }
 }
