@@ -12,12 +12,12 @@ public class BoilersChangeTemp : MonoBehaviour
     public void TempChange()
     {
         var temp = Convert.ToInt32(BoilerTemp.text);
-        PlayerPrefs.SetInt("Energy", PlayerPrefs.GetInt("Energy") - 10);
+        PlayerPrefs.SetInt("Energy", PlayerPrefs.GetInt("Energy") - 2);
 
         if (ChosenItem.text == "Inferno")
-            temp = temp + 1;
+            temp = temp + 2;
         if (ChosenItem.text == "Nefelhame")
-            temp = temp - 1;
+            temp = temp - 2;
 
         BoilerTemp.text = temp.ToString();
         Boiler.text = "T = " + temp.ToString() + " C";

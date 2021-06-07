@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 using System;
 
 public class BoilerGen : MonoBehaviour
@@ -36,6 +37,9 @@ public class BoilerGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        var maxQClics = 50;
+        var ways = new List<int>();
         for (var i = 0; i < 12; i++)
         {
             boilWay[i] = false;
@@ -120,13 +124,25 @@ public class BoilerGen : MonoBehaviour
 
         for (var i = 0; i < 12; i++)
         {
-            BoilNumbers[i] = -1;
+            BoilNumbers[i] = rnd.Next(-maxQClics-20, maxQClics+20);
         }
 
         for (var i = 0; i < 12; i++)
         {
-            if(boilWay[i])
-                BoilNumbers[i] = 1;
+            if (boilWay[i])
+                ways.Add(i);
+        }
+
+        foreach(var index in ways)
+        {
+            if (index < 9)
+            {
+                var number = rnd.Next(-maxQClics / ways.Count, maxQClics / ways.Count);
+                number = number - number % 2;
+                BoilNumbers[index] = number;
+                maxQClics -= number;
+            }
+
         }
 
         Boiler1.text = "T = " + BoilNumbers[0].ToString() + " C";
