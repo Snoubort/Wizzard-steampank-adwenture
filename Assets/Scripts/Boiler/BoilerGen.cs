@@ -31,15 +31,15 @@ public class BoilerGen : MonoBehaviour
     public Text BoilerTemp10;
     public Text BoilerTemp11;
     public Text BoilerTemp12;
+
     public static System.Random rnd = new System.Random(DateTime.Now.Millisecond);
     public static bool[] boilWay = new bool[12];
     public static int[] BoilNumbers = new int[12];
     // Start is called before the first frame update
     void Start()
     {
-
-        var maxQClics = 50;
         var ways = new List<int>();
+
         for (var i = 0; i < 12; i++)
         {
             boilWay[i] = false;
@@ -106,26 +106,9 @@ public class BoilerGen : MonoBehaviour
             }
         }
 
-        var From3to4 = colum3 % 3 - colum4 % 3;
-        if (From3to4 > 0)
-        {
-            for (var i = 1; i <= From3to4; i++)
-            {
-                boilWay[colum4 + i] = true;
-            }
-        }
-        if (From3to4 < 0)
-        {
-            for (var i = 1; i <= Math.Abs(From3to4); i++)
-            {
-                boilWay[colum4 - i] = true;
-            }
-        }
+        boilWay[colum3 % 3 + 8] = true; 
 
-        for (var i = 0; i < 12; i++)
-        {
-            BoilNumbers[i] = rnd.Next(-maxQClics-20, maxQClics+20);
-        }
+        var maxEnergy = PlayerPrefs.GetInt("MaxEnergy");
 
         for (var i = 0; i < 12; i++)
         {
@@ -133,16 +116,32 @@ public class BoilerGen : MonoBehaviour
                 ways.Add(i);
         }
 
-        foreach(var index in ways)
-        {
-            if (index < 9)
-            {
-                var number = rnd.Next(-maxQClics / ways.Count, maxQClics / ways.Count);
-                number = number - number % 2;
-                BoilNumbers[index] = number;
-                maxQClics -= number;
-            }
+        var valueLimit = maxEnergy / ways.Count;
 
+        for (var i = 0; i < 12; i++)
+        {
+            if (rnd.Next(1, 3) == 1)
+                BoilNumbers[i] = rnd.Next(-valueLimit - 20, -valueLimit - 2);
+            else
+                BoilNumbers[i] = rnd.Next(valueLimit + 2, valueLimit + 20);
+        }
+
+        foreach (var index in ways)
+        {
+            var number = 0;
+            if (rnd.Next(1, 3) == 1)
+                number = rnd.Next(-valueLimit, -valueLimit +20);
+            else
+                number = rnd.Next(valueLimit - 20, valueLimit);
+
+            if (index == colum3 % 3 + 8)
+            {
+                number = maxEnergy;
+                break;
+            }
+                
+            BoilNumbers[index] = number;
+            maxEnergy = maxEnergy - number;
         }
 
         Boiler1.text = "T = " + BoilNumbers[0].ToString() + " C";

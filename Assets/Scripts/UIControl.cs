@@ -7,6 +7,8 @@ public class UIControl : MonoBehaviour
     public Text ChosenItem;
     public Text NextItem;
     public Text PreviousItem;
+    public Text EnergyUsed;
+    public Button ButtonDown;
     public void ToNextItem()
     {
         if(ChosenItem.text == "Inferno")
@@ -45,5 +47,19 @@ public class UIControl : MonoBehaviour
             return;
         }
 
+    }
+
+    public void EnergyUp()
+    {
+        EnergyUsed.text = (Convert.ToInt32(EnergyUsed.text) + 1).ToString();
+        if(Convert.ToInt32(EnergyUsed.text) > 1)
+            ButtonDown.gameObject.SetActive(true);
+    }
+
+    public void EnergyDown()
+    {
+        EnergyUsed.text = (Convert.ToInt32(EnergyUsed.text) - 1).ToString();
+        if (Convert.ToInt32(EnergyUsed.text) <= 1)
+            ButtonDown.gameObject.SetActive(false);
     }
 }
