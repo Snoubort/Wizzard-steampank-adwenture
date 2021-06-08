@@ -14,6 +14,8 @@ public class BoilerUpGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        var c = 1;
+        var m = 2;
         UpRange1 = BoilerGen.rnd.Next(1, 40);
         if(UpRange1 == 20)
             UpRange1 = BoilerGen.rnd.Next(20, 40);
@@ -26,8 +28,8 @@ public class BoilerUpGen : MonoBehaviour
 
         MaxSumm = UpRange1 + UpRange2 + 20;
 
-        NeedToUP1.text = UpRange1.ToString();
-        NeedToUP2.text = UpRange2.ToString();
-        NeedToUP3.text = UpRange3.ToString();
+        NeedToUP1.text = (c * m * (UpRange1 - 20)).ToString();
+        NeedToUP2.text = (c * m * (UpRange2 - 20)).ToString();
+        NeedToUP3.text = (c * m * (UpRange3 - 20)).ToString();
     }
 }

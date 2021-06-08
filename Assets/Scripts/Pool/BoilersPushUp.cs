@@ -17,11 +17,6 @@ public class BoilersPushUp : MonoBehaviour
     private int m = 2;
     private int c = 1;
 
-    private void Start()
-    {
-        //NeedToUP.text = "Q activated " + (c * m * (ToUp - 20)).ToString();
-    }
-
     public void ControlTemp()
     {
         var temp = TakeTemp();
@@ -56,6 +51,7 @@ public class BoilersPushUp : MonoBehaviour
             ToUp = BoilerUpGen.UpRange2;
         if (NumberOfBoiler == 3)
             ToUp = BoilerUpGen.UpRange3;
+
         if (temp < ToUp)
         {
             floor.transform.position = new Vector3(floor.transform.position.x, -7f, floor.transform.position.z);
