@@ -44,17 +44,20 @@ public class DoorUse : MonoBehaviour
             {
                 if (levelIndex == "TutorialExit")
                 {
+                    GeneratePlayerScils();
                     PlayerPrefs.SetInt("LevelIndex", 1);
                     SceneManager.LoadScene("Level1");
                     ActivatedKey = false;
                 }
                 if (levelIndex == "BoilerEnter")
                 {
+                    GeneratePlayerScils();
                     SceneManager.LoadScene("Boilers");
                     ActivatedKey = false;
                 }
                 if (levelIndex == "BoilerExit")
                 {
+                    GeneratePlayerScils();
                     PlayerPrefs.SetInt("LevelIndex", 2);
                     SceneManager.LoadScene("Level1");
                     ActivatedKey = false;
@@ -62,6 +65,7 @@ public class DoorUse : MonoBehaviour
 
                 if (levelIndex == "PoolEnter")
                 {
+                    GeneratePlayerScils();
                     PlayerPrefs.SetInt("LevelIndex", 3);
                     SceneManager.LoadScene("Pool");
                     ActivatedKey = false;
@@ -69,12 +73,27 @@ public class DoorUse : MonoBehaviour
 
                 if (levelIndex == "PoolExit")
                 {
+                    GeneratePlayerScils();
                     PlayerPrefs.SetInt("LevelIndex", 4);
                     SceneManager.LoadScene("Level1");
                     ActivatedKey = false;
                 }
 
+                if (levelIndex == "Exit")
+                {
+                    GeneratePlayerScils();
+                    PlayerPrefs.SetInt("LevelIndex", 5);
+                    SceneManager.LoadScene("MainMenu");
+                    ActivatedKey = false;
+                }
+
             }         
         }
+    }
+
+    void GeneratePlayerScils()
+    {
+        PlayerPrefs.SetInt("HP", 200);
+        PlayerPrefs.SetInt("Energy", 200);
     }
 }

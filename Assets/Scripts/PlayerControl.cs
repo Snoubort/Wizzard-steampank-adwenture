@@ -23,7 +23,7 @@ public class PlayerControl : MonoBehaviour
         //2 - BoilerExit
         //3 - PoolEnter
         //4 - PoolExit
-        //
+        //5 - Exit
         if (PlayerPrefs.GetInt("LevelIndex") == 2)
         {
             transform.position = BoilExit.transform.position;

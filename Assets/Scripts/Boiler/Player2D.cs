@@ -15,7 +15,6 @@ public class Player2D : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GeneratePlayerScils();
         rigidBody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -41,14 +40,6 @@ public class Player2D : MonoBehaviour
     {
         faceRight = !faceRight;
         transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
-    }
-
-    void GeneratePlayerScils()
-    {
-        PlayerPrefs.SetInt("HP", 200);
-        PlayerPrefs.SetInt("Energy", 200);
-        HP.value = PlayerPrefs.GetInt("HP");
-        Energe.value = PlayerPrefs.GetInt("Energy");
     }
 
     void BarsUpdate()
