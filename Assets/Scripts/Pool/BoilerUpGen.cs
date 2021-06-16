@@ -28,8 +28,8 @@ public class BoilerUpGen : MonoBehaviour
 
         MaxSumm = UpRange1 + UpRange2 + 20;
 
-        NeedToUP1.text = (c * m * (UpRange1 - 20)).ToString();
-        NeedToUP2.text = (c * m * (UpRange2 - 20)).ToString();
-        NeedToUP3.text = (c * m * (UpRange3 - 20)).ToString();
+        NeedToUP1.text = (c * m * (UpRange1)).ToString();
+        NeedToUP2.text = (c * m * (UpRange2)).ToString();
+        NeedToUP3.text = (c * m * (UpRange3)).ToString();
     }
 }

@@ -3659,7 +3659,7 @@ MonoBehaviour:
   Anim: {fileID: 1313526085}
   HP: {fileID: 1569518206}
   Energe: {fileID: 1702852864}
-  speed: 30
+  speed: 25
   ActivatedKey: 0
 --- !u!70 &1313526087
 CapsuleCollider2D:
@@ -3871,6 +3871,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855349d80d7cf2844bef67d67bb14065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChosenSprite: {fileID: 1263439797}
+  PreviousSprite: {fileID: 2136986722}
+  NextSprite: {fileID: 570812301}
   ChosenItem: {fileID: 1967350298}
   NextItem: {fileID: 496218497}
   PreviousItem: {fileID: 532588883}

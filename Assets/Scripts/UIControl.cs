@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class UIControl : MonoBehaviour
 {
+    public GameObject ChosenSprite;
+    public GameObject PreviousSprite;
+    public GameObject NextSprite;
     public Text ChosenItem;
     public Text NextItem;
     public Text PreviousItem;
@@ -13,6 +16,10 @@ public class UIControl : MonoBehaviour
     {
         if(ChosenItem.text == "Inferno")
         {
+            var spriteSave = ChosenSprite.GetComponent<Image>().sprite;
+            ChosenSprite.GetComponent<Image>().sprite = PreviousSprite.GetComponent<Image>().sprite;
+            PreviousSprite.GetComponent<Image>().sprite = spriteSave;
+            NextSprite.GetComponent<Image>().sprite = spriteSave;
             ChosenItem.text = "Nefelhame";
             NextItem.text = "Inferno";
             PreviousItem.text = "Inferno";
@@ -21,6 +28,10 @@ public class UIControl : MonoBehaviour
 
         if (ChosenItem.text == "Nefelhame")
         {
+            var spriteSave = ChosenSprite.GetComponent<Image>().sprite;
+            ChosenSprite.GetComponent<Image>().sprite = PreviousSprite.GetComponent<Image>().sprite;
+            PreviousSprite.GetComponent<Image>().sprite = spriteSave;
+            NextSprite.GetComponent<Image>().sprite = spriteSave;
             ChosenItem.text = "Inferno";
             NextItem.text = "Nefelhame";
             PreviousItem.text = "Nefelhame";
@@ -33,6 +44,10 @@ public class UIControl : MonoBehaviour
     {
         if (ChosenItem.text == "Inferno")
         {
+            var spriteSave = ChosenSprite.GetComponent<Image>().sprite;
+            ChosenSprite.GetComponent<Image>().sprite = PreviousSprite.GetComponent<Image>().sprite;
+            PreviousSprite.GetComponent<Image>().sprite = spriteSave;
+            NextSprite.GetComponent<Image>().sprite = spriteSave;
             ChosenItem.text = "Nefelhame";
             NextItem.text = "Inferno";
             PreviousItem.text = "Inferno";
@@ -41,6 +56,10 @@ public class UIControl : MonoBehaviour
 
         if (ChosenItem.text == "Nefelhame")
         {
+            var spriteSave = ChosenSprite.GetComponent<Image>().sprite;
+            ChosenSprite.GetComponent<Image>().sprite = PreviousSprite.GetComponent<Image>().sprite;
+            PreviousSprite.GetComponent<Image>().sprite = spriteSave;
+            NextSprite.GetComponent<Image>().sprite = spriteSave;
             ChosenItem.text = "Inferno";
             NextItem.text = "Nefelhame";
             PreviousItem.text = "Nefelhame";
